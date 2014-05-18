@@ -16,9 +16,7 @@
 	],
 	"require": {
 		"php": ">= 5.4",
-		"nette/nette": "~2.2.0",
-		"dg/adminer-custom": "~1.0",
-		"dg/texy": "~2.5"
+		"nette/nette": "~2.2.0"
 	},
 	"require-dev": {
 		"nette/tester": "~1.0"
