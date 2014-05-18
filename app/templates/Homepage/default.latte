@@ -1,3 +1,15 @@
 {block content}
+
+	<h1>Knihovnička</h1>
+	
+	{foreach $books as $author => $authorBooks}
+	<div><h3>{$author}:</h3>
+		<ul>
+			{foreach $authorBooks as $book}
+				<li>{$book}
+			{/foreach}
+		</ul>
+	</div>
+	{/foreach}
 	
 {/block}
