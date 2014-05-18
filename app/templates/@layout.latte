@@ -1,5 +1,5 @@
 {**
- * My Application layout template.
+ * Layout template.
  *
  * @param string   $basePath web base path
  * @param string   $robots   tell robots how to index the content of a page (optional)
@@ -13,7 +13,7 @@
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+	<title>{block title}{/block}App</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
