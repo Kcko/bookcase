@@ -2,14 +2,11 @@
 
 	<h1>Knihovnička</h1>
 	
-	{foreach $books as $author => $authorBooks}
-	<div><h3>{$author}:</h3>
+	<div n:foreach="$books as $author => $authorBooks">
+		<h3>{$author}:</h3>
 		<ul>
-			{foreach $authorBooks as $book}
-				<li>{$book}
-			{/foreach}
+			<li n:foreach="$authorBooks as $book">{$book}</li>
 		</ul>
 	</div>
-	{/foreach}
 	
 {/block}
