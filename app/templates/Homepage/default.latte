@@ -2,11 +2,6 @@
 
 	<h1>Knihovnička</h1>
 	
-	<div n:foreach="$books as $author => $authorBooks">
-		<h3>{$author}:</h3>
-		<ul>
-			<li n:foreach="$authorBooks as $book">{$book}</li>
-		</ul>
-	</div>
+	<p>Pokračujte <a n:href="bookcase">na seznam knih</a>.</p>
 	
 {/block}

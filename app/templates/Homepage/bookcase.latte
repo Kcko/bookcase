@@ -1,0 +1,12 @@
+{block content}
+
+	<h1>Knihovnička</h1>
+	
+	<div n:foreach="$books as $author => $authorBooks">
+		<h3>{$author}:</h3>
+		<ul>
+			<li n:foreach="$authorBooks as $book">{$book}</li>
+		</ul>
+	</div>
+	
+{/block}

@@ -8,8 +8,12 @@ namespace App\Presenters;
  */
 class HomepagePresenter extends BasePresenter
 {
-
+	
 	public function renderDefault()
+	{
+	}
+
+	public function renderBookcase()
 	{
 		$books = [
 				'Robert Louis Stevenson' => [
