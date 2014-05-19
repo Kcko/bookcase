@@ -2,8 +2,7 @@
 
 namespace App\Presenters;
 
-use App\Model\BookRepository,
-	App\Model\AuthorRepository;
+use App\Model\BookcaseService;
 
 
 /**
@@ -13,16 +12,10 @@ class HomepagePresenter extends BasePresenter
 {
 	
 	/**
-	 * @var BookRepository
+	 * @var BookcaseService
 	 * @inject
 	 */
-	public $books;
-	
-	/**
-	 * @var AuthorRepository
-	 * @inject
-	 */
-	public $authors;
+	public $bookcase;
 	
 	
 	public function renderDefault()
@@ -31,8 +24,7 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderBookcase()
 	{
-		$tolkien = $this->authors->getByName('John Ronald Reuel Tolkien');
-		$this->template->booksOfTolkien = $this->books->findByAuthor($tolkien->id);
+		$this->template->booksOfTolkien = $this->bookcase->findBooksByAuthor('John Ronald Reuel Tolkien');
 	}
 
 }
