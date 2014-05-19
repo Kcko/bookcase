@@ -2,6 +2,12 @@
 
 	<h1>Knihovnička</h1>
 	
+	<h3>Autoři:</h3>
+	<ul>
+		<li n:foreach="$authors as $author">{$author->name}</li>
+	</ul>
+	
+	<h3>Knihy:</h3>
 	<ul>
 		<li n:foreach="$books as $book">{$book->title}</li>
 	</ul>

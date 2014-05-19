@@ -2,7 +2,8 @@
 
 namespace App\Presenters;
 
-use App\Model\BookRepository;
+use App\Model\BookRepository,
+	App\Model\AuthorRepository;
 
 
 /**
@@ -17,6 +18,12 @@ class HomepagePresenter extends BasePresenter
 	 */
 	public $books;
 	
+	/**
+	 * @var AuthorRepository
+	 * @inject
+	 */
+	public $authors;
+	
 	
 	public function renderDefault()
 	{
@@ -24,9 +31,8 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderBookcase()
 	{
-		barDump($this->books->getByTitle('Silmarillion')); # ukázka ladicího výpisu do debug baru
-		$books = $this->books->findAll();
-		$this->template->books = $books;
+		$this->template->books = $this->books->findAll();
+		$this->template->authors = $this->authors->findAll();
 	}
 
 }
