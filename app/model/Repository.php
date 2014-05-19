@@ -49,6 +49,18 @@ abstract class Repository extends Object
 	
 	
 	/** 
+	 * Vrátí záznam podle primárního klíče
+	 * 
+	 * @param int
+	 * @return \Nette\Database\Table\ActiveRow|FALSE
+	 */
+	public function get($id)
+	{
+		return $this->findAll()->wherePrimary($id)->fetch();
+	}
+	
+	
+	/** 
 	 * Vrátí jeden záznam podle podmínky
 	 * 
 	 * @param array
