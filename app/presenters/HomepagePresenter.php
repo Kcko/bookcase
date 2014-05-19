@@ -2,6 +2,8 @@
 
 namespace App\Presenters;
 
+use Nette\Database\Context as NDatabase;
+
 
 /**
  * Homepage presenter.
@@ -9,26 +11,20 @@ namespace App\Presenters;
 class HomepagePresenter extends BasePresenter
 {
 	
+	/**
+	 * @var NDatabase
+	 * @inject
+	 */
+	public $database;
+	
+	
 	public function renderDefault()
 	{
 	}
 
 	public function renderBookcase()
 	{
-		$books = [
-				'Robert Louis Stevenson' => [
-					'Ostrov pokladů',
-					'Podivný případ Dr. Jekylla a pana Hyda',
-					'Černý šíp',
-					'Rytíř z Ballantrae'
-					],
-				'John Ronald Reuel Tolkien' => [
-					'Hobit aneb Cesta tam a zase zpátky',
-					'Pán prstenů',
-					'Silmarillion'
-					]
-				];
-		
+		$books = $this->database->query('select * from book');
 		$this->template->books = $books;
 	}
 
