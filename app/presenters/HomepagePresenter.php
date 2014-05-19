@@ -37,6 +37,13 @@ class HomepagePresenter extends BasePresenter
 	}
 	
 	
+	public function handleNew()
+	{
+		$this->books->insert(['title' => "Lorem Ipsum", 'id_author' => 1]);
+		$this->redirect('this');
+	}
+	
+	
 	/**
 	 * @param int
 	 */
