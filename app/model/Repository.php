@@ -71,5 +71,17 @@ abstract class Repository extends Object
 		return $this->findAll()->where($where)->fetch();
 	}
 	
+	
+	
+	/** 
+	 * Vloží nový záznam do tabulky
+	 * 
+	 * @param array
+	 * @return \Nette\Database\Table\IRow|int
+	 */
+	public function insert($data)
+	{
+		return $this->database->table($this->table)->insert($data);
+	}
 
 }
