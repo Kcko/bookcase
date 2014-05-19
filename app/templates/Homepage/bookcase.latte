@@ -2,9 +2,17 @@
 
 	<h1>Knihovnička</h1>
 	
-	<h3>Knihy od Tolkiena:</h3>
-	<ul>
-		<li n:foreach="$booksOfTolkien as $book">{$book->title}</li>
-	</ul>
+	<h3>Všechny knihy:</h3>
+	<table>
+		<tr>
+			<td>Název</td>
+			<td>Autor</td>
+		</tr>
+		
+		<tr n:foreach="$books as $book">
+			<td>{$book->title}</td>
+			<td>{$book->id_author}</td>
+		</tr>
+	</table>
 	
 {/block}
