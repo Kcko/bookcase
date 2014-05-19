@@ -32,6 +32,17 @@ class BookRepository extends Object
 	
 	
 	/** 
+	 * @param int
+	 * @return array
+	 */
+	public function findByAuthor($idAuthor)
+	{
+		return $this->database->query('select * from book where id_author = ?', $idAuthor)->fetchAll();
+	}
+	
+	
+	/** 
+	 * @param string
 	 * @return \Nette\Database\Row|FALSE
 	 */
 	public function getByTitle($title)

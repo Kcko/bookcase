@@ -31,8 +31,8 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderBookcase()
 	{
-		$this->template->books = $this->books->findAll();
-		$this->template->authors = $this->authors->findAll();
+		$tolkien = $this->authors->getByName('John Ronald Reuel Tolkien');
+		$this->template->booksOfTolkien = $this->books->findByAuthor($tolkien->id);
 	}
 
 }
