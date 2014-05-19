@@ -13,7 +13,10 @@
 		<tr n:foreach="$books as $book">
 			<td>{$book->title}</td>
 			<td>{$book->author->name}</td>
-			<td><a n:href="delete!, $book->id">Smazat</a></td>
+			<td>
+				<a n:href="delete!, $book->id">Smazat</a> |
+				<a n:href="changeAuthor!, $book->id">Změnit autora</a>
+			</td>
 		</tr>
 	</table>
 	

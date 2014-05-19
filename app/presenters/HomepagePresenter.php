@@ -45,5 +45,20 @@ class HomepagePresenter extends BasePresenter
 		$this->books->get($id)->delete();
 		$this->redirect('this');
 	}
+	
+	
+	/**
+	 * @param int
+	 */
+	public function handleChangeAuthor($id)
+	{
+		$book = $this->books->get($id);
+		
+		$authorId = $book->author->id;
+		$secondAuthorId = $authorId === 1 ? 2 : 1;
+		
+		$book->update(['id_author' => $secondAuthorId]);
+		$this->redirect('this');
+	}
 
 }
