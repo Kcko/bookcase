@@ -23,35 +23,31 @@ class BookRepository extends Object
 
 	
 	/** 
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findAll()
 	{
-		return $this->database->query('
-				select book.*, author.name as author
-				from book
-				join author on book.id_author = author.id
-			')->fetchAll();
+		return $this->database->table('book');
 	}
 	
 	
 	/** 
 	 * @param int
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findByAuthor($idAuthor)
 	{
-		return $this->database->query('select * from book where id_author = ?', $idAuthor)->fetchAll();
+		return $this->findAll()->where(['id_author' => $idAuthor]);
 	}
 	
 	
 	/** 
 	 * @param string
-	 * @return \Nette\Database\Row|FALSE
+	 * @return \Nette\Database\Table\ActiveRow|FALSE
 	 */
 	public function getByTitle($title)
 	{
-		return $this->database->query('select * from book where title = ?', $title)->fetch();
+		return $this->findAll()->where(['title' => $title])->fetch();
 	}
 	
 

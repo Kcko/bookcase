@@ -23,21 +23,21 @@ class AuthorRepository extends Object
 
 	
 	/** 
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findAll()
 	{
-		return $this->database->query('select * from author')->fetchAll();
+		return $this->database->table('author');
 	}
 	
 	
 	/** 
 	 * @param string
-	 * @return \Nette\Database\Row|FALSE
+	 * @return \Nette\Database\Table\ActiveRow|FALSE
 	 */
 	public function getByName($name)
 	{
-		return $this->database->query('select * from author where name = ?', $name)->fetch();
+		return $this->findAll()->where(['name' => $name])->fetch();
 	}
 	
 

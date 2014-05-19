@@ -28,7 +28,7 @@ class BookcaseService extends Object
 	
 	
 	/** 
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findAllAuthors()
 	{
@@ -38,7 +38,7 @@ class BookcaseService extends Object
 	
 	/** 
 	 * @param string
-	 * @return \Nette\Database\Row|FALSE
+	 * @return \Nette\Database\Table\ActiveRow|FALSE
 	 */
 	public function getAuthorByName($name)
 	{
@@ -48,7 +48,7 @@ class BookcaseService extends Object
 
 	
 	/** 
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findAllBooks()
 	{
@@ -58,7 +58,7 @@ class BookcaseService extends Object
 	
 	/** 
 	 * @param string
-	 * @return array
+	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findBooksByAuthor($name)
 	{
@@ -69,7 +69,7 @@ class BookcaseService extends Object
 	
 	/** 
 	 * @param string
-	 * @return \Nette\Database\Row|FALSE
+	 * @return \Nette\Database\Table\ActiveRow|FALSE
 	 */
 	public function getBookByTitle($title)
 	{
