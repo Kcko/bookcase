@@ -27,4 +27,3 @@ services:
 	router: @App\RouterFactory::createRouter
 	- App\Model\BookRepository
 	- App\Model\AuthorRepository
-	- App\Model\BookcaseService
