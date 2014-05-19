@@ -27,7 +27,11 @@ class BookRepository extends Object
 	 */
 	public function findAll()
 	{
-		return $this->database->query('select * from book')->fetchAll();
+		return $this->database->query('
+				select book.*, author.name as author
+				from book
+				join author on book.id_author = author.id
+			')->fetchAll();
 	}
 	
 	
