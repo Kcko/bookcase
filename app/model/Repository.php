@@ -56,7 +56,7 @@ abstract class Repository extends Object
 	 */
 	public function get($id)
 	{
-		return $this->findAll()->wherePrimary($id)->fetch();
+		return $this->findAll()->get($id);
 	}
 	
 	
