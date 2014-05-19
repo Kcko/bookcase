@@ -25,13 +25,25 @@ class HomepagePresenter extends BasePresenter
 	public $authors;
 	
 	
+	
 	public function renderDefault()
 	{
 	}
+	
 
 	public function renderBookcase()
 	{
-		$this->template->books = $this->books->findByAuthor('John Ronald Reuel Tolkien');
+		$this->template->books = $this->books->findAll();
+	}
+	
+	
+	/**
+	 * @param int
+	 */
+	public function handleDelete($id)
+	{
+		$this->books->get($id)->delete();
+		$this->redirect('this');
 	}
 
 }

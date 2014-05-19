@@ -2,16 +2,18 @@
 
 	<h1>Knihovnička</h1>
 	
-	<h3>Knihy od Tolkiena:</h3>
+	<h3>Všechny knihy:</h3>
 	<table>
 		<tr>
 			<td>Název</td>
 			<td>Autor</td>
+			<td>Správa</td>
 		</tr>
 		
 		<tr n:foreach="$books as $book">
 			<td>{$book->title}</td>
 			<td>{$book->author->name}</td>
+			<td><a n:href="delete!, $book->id">Smazat</a></td>
 		</tr>
 	</table>
 	
