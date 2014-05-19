@@ -23,6 +23,8 @@ class AuthorRepository extends Object
 
 	
 	/** 
+	 * Vrátí všechny platné záznamy
+	 * 
 	 * @return \Nette\Database\Table\Selection
 	 */
 	public function findAll()
@@ -32,12 +34,26 @@ class AuthorRepository extends Object
 	
 	
 	/** 
-	 * @param string
+	 * Vrátí kolekci záznamů podle podmínky
+	 * 
+	 * @param array
+	 * @return \Nette\Database\Table\Selection
+	 */
+	public function findBy($where)
+	{
+		return $this->findAll()->where($where);
+	}
+	
+	
+	/** 
+	 * Vrátí jeden záznam podle podmínky
+	 * 
+	 * @param array
 	 * @return \Nette\Database\Table\ActiveRow|FALSE
 	 */
-	public function getByName($name)
+	public function getBy($where)
 	{
-		return $this->findAll()->where(['name' => $name])->fetch();
+		return $this->findAll()->where($where)->fetch();
 	}
 	
 

@@ -42,7 +42,7 @@ class BookcaseService extends Object
 	 */
 	public function getAuthorByName($name)
 	{
-		return $this->authors->getByName($name);
+		return $this->authors->getBy(['name' => $name]);
 	}
 	
 
@@ -62,8 +62,7 @@ class BookcaseService extends Object
 	 */
 	public function findBooksByAuthor($name)
 	{
-		$author = $this->authors->getByName($name);
-		return $this->books->findByAuthor($author->id);
+		return $this->books->findBy(['author.name' => $name]);
 	}
 	
 	
@@ -73,7 +72,7 @@ class BookcaseService extends Object
 	 */
 	public function getBookByTitle($title)
 	{
-		return $this->books->getByTitle($title);
+		return $this->books->getBy(['title' => $title]);
 	}
 	
 
