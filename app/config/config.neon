@@ -25,3 +25,4 @@ nette:
 services:
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
+	- App\Model\BookRepository

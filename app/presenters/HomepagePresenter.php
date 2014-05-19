@@ -2,7 +2,7 @@
 
 namespace App\Presenters;
 
-use Nette\Database\Context as NDatabase;
+use App\Model\BookRepository;
 
 
 /**
@@ -12,10 +12,10 @@ class HomepagePresenter extends BasePresenter
 {
 	
 	/**
-	 * @var NDatabase
+	 * @var BookRepository
 	 * @inject
 	 */
-	public $database;
+	public $books;
 	
 	
 	public function renderDefault()
@@ -24,7 +24,8 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderBookcase()
 	{
-		$books = $this->database->query('select * from book');
+		barDump($this->books->getByTitle('Silmarillion')); # ukázka ladicího výpisu do debug baru
+		$books = $this->books->findAll();
 		$this->template->books = $books;
 	}
 
