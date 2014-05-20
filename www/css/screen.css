@@ -52,3 +52,28 @@ form .error {
 html.js .jshidden {
 	display: none;
 }
+
+table.bookcase {
+	border-spacing: 0; 
+	border: 1px solid black;
+}
+
+table.bookcase tr:nth-child(odd) {
+	background-color: #e5eeff;
+}
+
+table.bookcase tr:nth-child(even) {
+	background-color: #ffffff;
+}
+
+table.bookcase td{
+	border: 1px solid black;
+	padding: 5px 10px 5px 10px;
+}
+
+table.bookcase tr th{
+	background-color: #457cb2;
+	color: white;
+	border: 1px solid black;
+	padding: 5px 10px 5px 10px;
+}
