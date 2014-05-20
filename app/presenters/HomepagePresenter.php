@@ -36,9 +36,18 @@ class HomepagePresenter extends BasePresenter
 	{
 		$this->template->books = $this->books->findAll();
 	}
+	
+	
+	public function actionEdit($id)
+	{
+		$book = $this->books->get($id);
+		$this['bookForm']->setDefaults($book);
+		
+	}
 
 	
-	
+
+
 	/**
 	 * @param int
 	 */
@@ -50,47 +59,42 @@ class HomepagePresenter extends BasePresenter
 	
 	
 	/**
-	 * @param int
-	 */
-	public function handleChangeAuthor($id)
-	{
-		$book = $this->books->get($id);
-		
-		$authorId = $book->author->id;
-		$secondAuthorId = $authorId === 1 ? 2 : 1;
-		
-		$book->update(['id_author' => $secondAuthorId]);
-		$this->redirect('this');
-	}
-	
-	
-	/**
-	 * Formulář pro zadání nové knihy.
+	 * Formulář pro zadání, nebo editaci knihy.
 	 * @return Form
 	 */
-	protected function createComponentNewBookForm()
+	protected function createComponentBookForm()
 	{
 		$form = new Form;
+		$form->addHidden('id');
 		$form->addText('title', 'Název knihy')
 			->setRequired('Vyplňte název knihy.');
 		$form->addSelect('id_author', 'Autor', $this->authors->findAll()->fetchPairs('id', 'name'))
 			->setRequired('Vyberte autora knihy.');
 		$form->addSubmit('ok', 'Odeslat');
-		$form->onSuccess[] = $this->newBookFormSuccess;
+		$form->onSuccess[] = $this->bookFormSuccess;
 
 		return $form;
 	}
 
 
 	/**
-	 * Zpracování formuláře pro zadání nové knihy.
+	 * Zpracování formuláře pro zadání, nebo editaci knihy.
 	 * @param Form $form
 	 */
-	public function newBookFormSuccess($form)
+	public function bookFormSuccess($form)
 	{
 		$values = $form->getValues();
-		$this->books->insert($values);
-		$this->redirect('this');
+		
+		if(empty($values->id)) {
+			$this->books->insert($values);
+		}
+		else {
+			$book = $this->books->get($values->id);
+			$book->update($values);
+		}
+		
+		$this->redirect('bookcase');
 	}
+
 
 }

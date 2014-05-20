@@ -15,11 +15,11 @@
 			<td>{$book->author->name}</td>
 			<td>
 				<a n:href="delete!, $book->id">Smazat</a> |
-				<a n:href="changeAuthor!, $book->id">Změnit autora</a>
+				<a n:href="edit, $book->id">Upravit</a>
 			</td>
 		</tr>
 	</table>
 			
 	<h2>Založit nový záznam:</h2>
-	{control newBookForm}
+	{control bookForm}
 {/block}
