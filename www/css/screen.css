@@ -53,27 +53,31 @@ html.js .jshidden {
 	display: none;
 }
 
+table.bookcase, table.bookcase th, table.bookcase td {
+	border:1px solid gray;
+}
+
 table.bookcase {
-	border-spacing: 0; 
-	border: 1px solid black;
+	border-spacing: 0;
+	border-bottom:0;
+	border-left:0;
+}
+
+table.bookcase td, table.bookcase th {
+	padding: 5px 10px 5px 10px;
+	border-top:0;
+	border-right:0;
 }
 
 table.bookcase tr:nth-child(odd) {
-	background-color: #e5eeff;
+	background-color: #e9f0ff;
 }
 
 table.bookcase tr:nth-child(even) {
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
-table.bookcase td{
-	border: 1px solid black;
-	padding: 5px 10px 5px 10px;
-}
-
-table.bookcase tr th{
-	background-color: #457cb2;
+table.bookcase th{
+	background-color: #47a;
 	color: white;
-	border: 1px solid black;
-	padding: 5px 10px 5px 10px;
 }
