@@ -17,13 +17,16 @@
 			  <a n:href="edit, $book->id">Upravit</a>
 		  </td>
 	  </tr>
+	  
+	  <tr class="panel-footer">
+		  {form bookForm,  class=>"form-inline"}
+		  <td>{input title, class=>"form-control"}</td>
+		  <td>{input id_author, class=>"form-control"}</td>
+		  <td>{input ok, value=>"Založit knihu", class=>"btn btn-primary"}</td>
+		  {/form}
+		  
+	  </tr>
   </table>
-
-  <div class="panel-footer">
-	  {form bookForm,  class=>"form-inline", role=>"form"}
-		  <b>Založit nový záznam:</b>
-		  {input id_author} - {input title, size=>"75"}{/form}
-  </div>
 </div>
 			  
 {/block}
