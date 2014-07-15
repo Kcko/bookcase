@@ -1,26 +1,28 @@
 {block content}
 
-	<h1>Knihovnička</h1>
-	
-	<h2>Všechny knihy:</h2>
-	
-	<table class="bookcase">
-		<tr>
-			<th>Název</th>
-			<th>Autor</th>
-			<th>Správa</th>
-		</tr>
-		
-		<tr n:foreach="$books as $book">
-			<td>{$book->title}</td>
-			<td>{$book->author->name}</td>
-			<td>
-				<a n:href="delete!, $book->id">Smazat</a> |
-				<a n:href="edit, $book->id">Upravit</a>
-			</td>
-		</tr>
-	</table>
-			
-	<h2>Založit nový záznam:</h2>
-	{control bookForm}
+	<div class="panel panel-default">
+	<!-- Default panel contents -->
+	  <table class="table table-striped table-bordered">
+		  <tr class="invert">
+			  <th>Název</th>
+			  <th>Autor</th>
+			  <th>Správa</th>
+		  </tr>
+
+		  <tr n:foreach="$books as $book">
+			  <td>{$book->title}</td>
+			  <td>{$book->author->name}</td>
+			  <td>
+				  <a n:href="delete!, $book->id">Smazat</a> |
+				  <a n:href="edit, $book->id">Upravit</a>
+			  </td>
+		  </tr>
+	  </table>
+
+	  <div class="panel-footer">
+		  {form bookForm,  class=>"form-inline", role=>"form"}
+			  <b>Založit nový záznam:</b>
+			  {input id_author} - {input title, size=>"75"}{/form}
+	  </div>
+	</div>
 {/block}
