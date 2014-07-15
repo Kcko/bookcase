@@ -11,7 +11,7 @@ use App\Model\BookRepository,
 /**
  * Bookcase presenter.
  */
-class BookcasePresenter extends BasePresenter
+final class BookcasePresenter extends BasePresenter
 {
 	
 	/**
