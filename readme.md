@@ -12,3 +12,4 @@ Naprosté základy
 5. přesunutí logiky do modelu
 6. práce s NDbT (table, insert, update, delete)
 7. formuláře v presenteru
+8. design pomocí CSS Bootstrap frameworku
