@@ -13,7 +13,7 @@
 		  <td>{$book->title}</td>
 		  <td>{$book->author->name}</td>
 		  <td>
-			  <a n:href="delete!, $book->id">Smazat</a> |
+			  <a n:href="delete!, $book->id" onclick="return confirm('Opravdu smazat?')">Smazat</a> |
 			  <a n:href="edit, $book->id">Upravit</a>
 		  </td>
 	  </tr>
